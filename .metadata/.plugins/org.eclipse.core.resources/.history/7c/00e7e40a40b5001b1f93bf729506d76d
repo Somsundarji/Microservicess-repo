@@ -1,0 +1,27 @@
+package com.example.serviceapplication.employee.Demoservices.Entety;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="employeeservices")
+public class Employeeservices {
+
+@Id	
+@GeneratedValue(strategy=GenerationType.IDENTITY)
+private int employee_id;
+@Column
+private String employee_name;
+@Column
+private String employee_address;
+@Column
+private int department_id;
+@Column 
+private int deletes;
+
+	
+}

@@ -1,0 +1,27 @@
+server:
+    port: 8761
+spring:
+  application:
+    name: CONFIG-SERVER
+spring:
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8761
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false   
+    
+cloud:
+    gateway:
+      routes:
+        - id: EMPOLOYEE-SERVER 
+          uri: lb://EMPOLOYEE-SERVER 
+          predicates:
+            - Path=/Employeeservices/**        
+        - id: DEPARTMENT-SERVER 
+          uri: lb://DEPARTMENT-SERVER 
+          predicates:
+            - Path=/department/**
+         

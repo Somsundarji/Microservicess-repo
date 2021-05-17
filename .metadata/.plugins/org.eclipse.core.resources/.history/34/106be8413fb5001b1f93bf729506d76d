@@ -1,0 +1,15 @@
+package com.example.serviceapplication.employee.Demoservices.Entety;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="employeeservices")
+public class Employeeservices {
+	
+	@Id
+	@GeneratedValue()
+
+	
+}

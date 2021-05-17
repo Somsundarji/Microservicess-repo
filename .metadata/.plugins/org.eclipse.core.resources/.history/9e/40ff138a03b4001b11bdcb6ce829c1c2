@@ -1,0 +1,50 @@
+package com.example.serviceapplication.department.Demoservices.Controller;
+
+import java.util.List;
+
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.serviceapplication.department.Demoservices.Entity.Department;
+import com.example.serviceapplication.department.Demoservices.Servicess.DepartmentServicess;
+
+import ch.qos.logback.classic.Logger;
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
+@RestController
+@RequestMapping(value = "/Department")
+public class DepartmentController {
+	
+	
+	@Autowired
+	private DepartmentServicess departmentServicess;
+	
+	@GetMapping("/alldepartment")
+	public List<Department> getAllDepartment() {		
+		List<Department> departmentdata = null;		
+		try {
+			departmentdata=departmentServicess.getAllDepartment();
+			return departmentdata;
+		} catch (Exception e) {
+			return null;
+		}
+				
+	}
+	
+	public Department getDepartmentById(@PathVariable int department_id){			
+		try {
+			return departmentServicess.getDepartmentById(department_id);
+			
+		} catch (Exception e) {
+			log.info("Hi This is my first SLF4J program");
+			return null;
+		}			
+		
+	}
+	
+
+}

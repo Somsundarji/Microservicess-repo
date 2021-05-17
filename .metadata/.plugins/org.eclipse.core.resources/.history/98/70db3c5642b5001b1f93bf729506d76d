@@ -1,0 +1,38 @@
+package com.example.serviceapplication.employee.Demoservices.Dao;
+
+import com.example.serviceapplication.employee.Demoservices.Services.Employeeservicess;
+
+public class ResponsTemplate {
+	
+	private Employeeservicess employeeservicess;
+	private Department department;
+	
+	
+	
+	public ResponsTemplate() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public ResponsTemplate(Employeeservicess employeeservicess, Department department) {
+		super();
+		this.employeeservicess = employeeservicess;
+		this.department = department;
+	}
+
+
+	public Employeeservicess getEmployeeservicess() {
+		return employeeservicess;
+	}
+	public void setEmployeeservicess(Employeeservicess employeeservicess) {
+		this.employeeservicess = employeeservicess;
+	}
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.example.serviceapplication.eurekaRegi.Demoservices;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EurekaRegiDemoServicesApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaRegiDemoServicesApplication.class, args);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.example.serviceapplication.employee.Demoservices.Dao;
+
+import com.example.serviceapplication.employee.Demoservices.Services.Employeeservicess;
+
+public class ResponsTemplate {
+	
+	private Employeeservicess employeeservicess;
+	private Department department;
+
+}

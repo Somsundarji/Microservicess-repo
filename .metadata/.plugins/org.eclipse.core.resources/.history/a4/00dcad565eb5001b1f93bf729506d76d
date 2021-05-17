@@ -1,0 +1,24 @@
+--- 
+eureka: 
+  client: 
+    fetchRegistry: false
+    registerWithEureka: false
+    serviceUrl: 
+      defaultZone: "http://localhost:9001/Employeeservices/"
+  instance: localhost
+server: 
+  port: 9001
+spring: 
+  datasource: 
+    driverClassName: com.mysql.jdbc.Driver
+    password: ~
+    url: "jdbc:mysql://localhost:3306/userservices"
+    username: root
+  jpa: 
+    generate-ddl: false
+    hibernate.ddl-auto: none
+    properties: 
+      hibernate: 
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+

@@ -1,0 +1,5 @@
+package com.example.serviceapplication.department.Demoservices.DTO;
+
+public class DepartmentDTO {
+
+}

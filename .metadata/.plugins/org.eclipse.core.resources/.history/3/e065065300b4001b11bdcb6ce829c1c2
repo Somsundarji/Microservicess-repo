@@ -1,0 +1,42 @@
+package com.example.serviceapplication.department.Demoservices.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.serviceapplication.department.Demoservices.Entity.Department;
+import com.example.serviceapplication.department.Demoservices.Servicess.DepartmentServicess;
+
+@RestController
+@RequestMapping(value = "/Department")
+public class DepartmentController {
+	
+	@Autowired
+	private DepartmentServicess departmentServicess;
+	
+	public List<Department> getAllDepartment() {		
+		List<Department> departmentdata = null;		
+		try {
+			departmentdata=departmentServicess.getAllDepartment();
+			return departmentdata;
+		} catch (Exception e) {
+			return null;
+		}
+				
+	}
+	
+	public Department getDepartmentById(int department_id){
+		
+		try {
+			departmentServicess.getDepartmentById(department_id);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		
+	}
+	
+
+}

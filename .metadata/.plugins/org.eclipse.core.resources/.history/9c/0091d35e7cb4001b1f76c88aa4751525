@@ -1,0 +1,69 @@
+package com.example.serviceapplication.department.Demoservices.Entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name ="department")
+public class Department {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int department_id;
+	
+	private String department_name;
+	
+	private String department_detals;
+	
+	private int delete;
+	
+	public Department(){
+		
+	}
+	
+	public Department(int department_id, String department_name, String department_detals, int delete) {
+		super();
+		this.department_id = department_id;
+		this.department_name = department_name;
+		this.department_detals = department_detals;
+		this.delete = delete;
+	}
+	public int getDelete() {
+		return delete;
+	}
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
+	public int getDepartment_id() {
+		return department_id;
+	}
+	public void setDepartment_id(int department_id) {
+		this.department_id = department_id;
+	}
+	public String getDepartment_name() {
+		return department_name;
+	}
+	public void setDepartment_name(String department_name) {
+		this.department_name = department_name;
+	}
+	public String getDepartment_detals() {
+		return department_detals;
+	}
+	public void setDepartment_detals(String department_detals) {
+		this.department_detals = department_detals;
+	}
+	
+	
+	
+
+}

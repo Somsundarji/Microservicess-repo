@@ -1,0 +1,38 @@
+package com.example.serviceapplication.department.Demoservices.Servicess;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.example.serviceapplication.department.Demoservices.Entity.Department;
+
+@Service
+public class DepartmentServicess {
+	
+	private 
+
+	public List<Department> getAllDepartment() {
+		
+			
+		return null;
+	}
+
+	public Department getDepartmentById(int department_id) {
+		return null;
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Department createOrSaveDepartment(Department department) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void deleteDepartment(int department_id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

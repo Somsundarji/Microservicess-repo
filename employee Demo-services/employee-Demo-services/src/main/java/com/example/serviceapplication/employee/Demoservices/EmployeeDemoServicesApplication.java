@@ -17,6 +17,7 @@ public class EmployeeDemoServicesApplication {
 	}
 
 	@Bean
+	@LoadBalanced
 	public RestTemplate resttemplte() {
 		return new RestTemplate();
 

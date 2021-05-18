@@ -5,7 +5,8 @@ eureka:
     registerWithEureka: true
     serviceUrl: 
       defaultZone: "http://localhost:8761/eureka/"
-  instance: localhost
+  instance: 
+   hostname: localhost
 server: 
   port: 9001
 spring: 
@@ -26,3 +27,6 @@ spring:
 ribbon:
   eureka:
     enabled: false
+
+  
+

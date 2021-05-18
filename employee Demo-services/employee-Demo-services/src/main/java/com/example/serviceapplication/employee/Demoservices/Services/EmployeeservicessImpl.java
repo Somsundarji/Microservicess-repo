@@ -54,7 +54,7 @@ public class EmployeeservicessImpl implements Employeeservicess {
 		Employee newEmployee = employeeservicesrepository.findByemployeeid(employee_id);
 
 		Department departments = 
-				restTemplate.getForObject("http://192.168.1.11:9002/department/getall/"+newEmployee.getDepartment_id()
+				restTemplate.getForObject("http://DEPARTMENT-SERVER/department/getall/"+newEmployee.getDepartment_id()
 				, Department.class);
 			
 		RT.setDepartment(departments);

@@ -1,0 +1,29 @@
+server:
+  port: 8989
+spring:  
+ application: 
+     name: GETEWAY-SERVER
+eureka: 
+  client: 
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka/
+  instance: 
+   hostname: localhost
+cloud:
+ geteway:
+   routes:
+    -id: DEPARTMENT-SERVER
+     url: ib://DEPARTMENT-SERVER
+     predicates:
+      -path: /department/**
+    -id: DEPARTMENT-SERVER
+     url: ib://DEPARTMENT-SERVER
+     predicates:
+      -path: /department/**  
+     
+    
+ 
+   
+  

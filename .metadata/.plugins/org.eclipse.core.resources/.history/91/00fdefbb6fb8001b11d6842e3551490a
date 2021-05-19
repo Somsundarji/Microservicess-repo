@@ -1,0 +1,21 @@
+package com.example.serviceapplication.employee.Demoservices.Dao;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.serviceapplication.department.Demoservices.Entity.Department;
+
+
+@FeignClient(name="DEPARTMENT-SERVER")
+public interface DepartmentServiceProxy {
+	
+	@GetMapping("/department/getall")
+	public List<Department> getAllDepartment();
+	
+	@GetMapping("/department/getall/{department_id}")
+	public List<Department> getDepartmentById(@PathVariable int department_id);
+}

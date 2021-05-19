@@ -1,0 +1,5 @@
+package com.example.serviceapplication.allgetway.Demoservices.Controller;
+
+public class FallbackController {
+
+}

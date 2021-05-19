@@ -9,7 +9,7 @@ public interface DepartmentServicess {
 	
 	public List<Department> getAllDepartment();
 	
-	public Optional<Department> getDepartmentById(int department_id);
+	public Department getDepartmentById(int department_id);
 	
 	public Department createOrSaveDepartment(Department department);
 	

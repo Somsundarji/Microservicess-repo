@@ -31,8 +31,16 @@
 		<list key="issueManagementUrl">
 		</list>
 	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item value="480" key="width"/>
+		<item value="443" key="x"/>
+		<item value="10" key="y"/>
+		<item value="531" key="height"/>
+	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\Micro-service-workspace\hystrix-dashboard-demo"/>
+			<item value="D:\Micro-service-workspace\allgetway Demo-services"/>
 			<item value="D:\Micro-service-workspace\eureka-Regi Demo-services"/>
 			<item value="D:\Micro-service-workspace\employee Demo-services"/>
 			<item value="D:\Workspace"/>

@@ -1,0 +1,83 @@
+package com.example.serviceapplication.department.Demoservices.Servicess;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.example.serviceapplication.department.Demoservices.Entity.Department;
+import com.example.serviceapplication.department.Demoservices.Repository.DepartmentRepository;
+import com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler.Builder;
+
+import lombok.extern.slf4j.Slf4j;
+@Service
+@Slf4j
+public class DepartmentServicessImp implements DepartmentServicess{
+
+	org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DepartmentServicessImp.class);
+
+	@Autowired
+	private DepartmentRepository departmentRepository;
+
+	public List<Department> getAllDepartment() {
+
+		return departmentRepository.findAll();
+	}
+
+	public List<Department> getDepartmentById(int department_id) {
+		
+		Optional<Department>Depdata =departmentRepository.findById(department_id);
+		List<Department>Departmentlist=null;
+		//Departmentlist=Depdata.get();
+		
+		BeanUtils.copyProperties(Depdata, Departmentlist);
+
+		return Departmentlist;
+		
+				
+
+	}
+
+	public Department createOrSaveDepartment(Department newdepartment) {	
+		
+		log.info("SaveDepartment is with-->"+newdepartment );
+		
+		Department obdepartment =departmentRepository.save(newdepartment);
+		
+		log.info("after SaveDepartment is with-->"+obdepartment );
+		
+		return obdepartment;
+		
+	}
+
+	public void deleteDepartment(int department_id) {
+		departmentRepository.findById(department_id).map(department -> {
+			department.setDeletes(0);
+			return departmentRepository.save(department);
+		});
+	}
+
+	public Department updateDepartment(Department department, int department_id) {
+
+		try {
+			return departmentRepository.findById(department_id).map(d -> {
+				d.setDepartment_id(department.getDepartment_id());
+				d.setDepartment_name(department.getDepartment_name());
+				d.setDepartment_detals(department.getDepartment_detals());
+				d.setDeletes(department.getDeletes());
+				return departmentRepository.save(department);
+			}).orElseGet(() -> {
+				department.setDepartment_id(department_id);
+				return departmentRepository.save(department);
+			});
+		} catch (Exception e) {
+			log.info("Exception" + e);
+			return null;
+		}
+
+	}
+
+}

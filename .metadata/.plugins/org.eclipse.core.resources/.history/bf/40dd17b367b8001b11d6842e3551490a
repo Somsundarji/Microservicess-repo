@@ -1,0 +1,14 @@
+package com.example.serviceapplication.employee.Demoservices.Dao;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+@FeignClient(name="localhost:9001/department")
+public interface DepartmentServiceProxy {
+	
+	@GetMapping("/getall")
+	public List<Department> getAllDepartment();
+}

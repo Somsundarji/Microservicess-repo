@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.serviceapplication.employee.Demoservices.Dao.Department;
 import com.example.serviceapplication.employee.Demoservices.Dao.ResponsTemplate;
 import com.example.serviceapplication.employee.Demoservices.Entety.Employee;
 import com.example.serviceapplication.employee.Demoservices.Services.Employeeservicess;
@@ -25,6 +26,8 @@ public class EmployeeControler {
 	
     @Autowired
 	private Employeeservicess employeeservicess;
+    
+   
 
 	@GetMapping(value = "/employees")
 	public List<Employee> getAllEmployees() {
@@ -57,7 +60,7 @@ public class EmployeeControler {
 		return employeeservicess.createOrSaveEmployee(newEmployee);
 	}
 
-	@GetMapping("/alldetails/{employee_id}")
+	@GetMapping("/Employeedetails/{employee_id}")
 	public ResponsTemplate getEmployeedetailsById(@PathVariable int employee_id) {
 		
 		try {
@@ -69,4 +72,32 @@ public class EmployeeControler {
 
 	}
 
+	@GetMapping(value = "/getDepartments")
+	public List<Department> getDepartment() {
+
+		List<Department> Departmentlist = null;
+		try {
+			Departmentlist = employeeservicess.getAllDepartment();
+			return Departmentlist;
+		} catch (Exception e) {
+			System.out.println("Exception "+e);			
+			return null;
+		}
+	}
+
+	@GetMapping("/findDepartment/{department_id}")	
+       public Department getDepartmentById(@PathVariable int department_id){
+		try {
+			System.out.println("find Department by id  "+department_id);
+			return employeeservicess.getDepartmentById(department_id);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+		
+		
+	   }
+	 
+	
 }

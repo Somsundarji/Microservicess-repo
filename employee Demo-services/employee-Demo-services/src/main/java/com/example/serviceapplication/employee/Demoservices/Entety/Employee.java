@@ -21,7 +21,7 @@ private String employee_name;
 @Column
 private String employee_address;
 @Column
-private int department_id;
+private int departmentid;
 @Column 
 private int deletes;
 
@@ -29,13 +29,13 @@ public Employee() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Employee(int employee_id, String employee_name, String employee_address, int department_id,
+public Employee(int employee_id, String employee_name, String employee_address, int departmentid,
 		int deletes) {
 	super();
 	this.employeeid = employee_id;
 	this.employee_name = employee_name;
 	this.employee_address = employee_address;
-	this.department_id = department_id;
+	this.departmentid = departmentid;
 	this.deletes = deletes;
 }
 public int getEmployeeid() {
@@ -56,11 +56,11 @@ public String getEmployee_address() {
 public void setEmployee_address(String employee_address) {
 	this.employee_address = employee_address;
 }
-public int getDepartment_id() {
-	return department_id;
+public int getDepartmentid() {
+	return departmentid;
 }
-public void setDepartment_id(int department_id) {
-	this.department_id = department_id;
+public void setDepartment_id(int departmentid) {
+	this.departmentid = departmentid;
 }
 public int getDeletes() {
 	return deletes;
@@ -71,7 +71,7 @@ public void setDeletes(int deletes) {
 @Override
 public String toString() {
 	return "Employeeservices [employee_id=" + employeeid + ", employee_name=" + employee_name + ", employee_address="
-			+ employee_address + ", department_id=" + department_id + ", deletes=" + deletes + "]";
+			+ employee_address + ", department_id=" + departmentid + ", deletes=" + deletes + "]";
 }
 
 	

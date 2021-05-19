@@ -44,9 +44,9 @@ public class DepartmentController {
 				
 	}
 	@GetMapping("/getall/{department_id}")
-	public Optional<Department> getDepartmentById(@PathVariable int department_id){			
+	public Department getDepartmentById(@PathVariable int department_id){			
 		try {
-			log.info("departmentServicess getDepartmentById respons is sucessfull");
+			log.info("departmentServicess getDepartmentById respons is sucessfull");			
 			return departmentServicess.getDepartmentById(department_id);
 			
 		} catch (Exception e) {

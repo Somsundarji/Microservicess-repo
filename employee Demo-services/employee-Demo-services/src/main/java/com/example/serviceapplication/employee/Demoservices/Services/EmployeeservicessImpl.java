@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.serviceapplication.employee.Demoservices.DTO.Employeeservicesrepository;
 import com.example.serviceapplication.employee.Demoservices.Dao.Department;
+import com.example.serviceapplication.employee.Demoservices.Dao.DepartmentServiceProxy;
 import com.example.serviceapplication.employee.Demoservices.Dao.ResponsTemplate;
 import com.example.serviceapplication.employee.Demoservices.Entety.Employee;
 
@@ -19,6 +20,9 @@ public class EmployeeservicessImpl implements Employeeservicess {
 
 	@Autowired
 	private Employeeservicesrepository employeeservicesrepository;
+	
+	   @Autowired
+	    private DepartmentServiceProxy DepServiceProxy;
 	
 	@Autowired
 	private RestTemplate restTemplate;
@@ -53,15 +57,48 @@ public class EmployeeservicessImpl implements Employeeservicess {
 		ResponsTemplate RT = new ResponsTemplate();
 		Employee newEmployee = employeeservicesrepository.findByemployeeid(employee_id);
 
-		Department departments = 
-				restTemplate.getForObject("http://DEPARTMENT-SERVER/department/getall/"+newEmployee.getDepartment_id()
+		//List<Department> departmentslist = null;
+		
+		
+		Department departments = restTemplate.getForObject("http://DEPARTMENT-SERVER/department/getall/"+newEmployee.getDepartmentid()
 				, Department.class);
 			
+				
+				
 		RT.setDepartment(departments);
 		RT.setEmployee(newEmployee);
 
 		return RT;
 		//return null;
+	}
+
+	@Override
+	public List<Department> getAllDepartment() {	
+		
+		try {
+			
+			return DepServiceProxy.getAllDepartment() ;
+			
+		} catch (Exception e) {
+			
+			System.out.println("Exception "+e);
+			return null;
+		}
+		
+	
+	}
+
+	@Override
+	public Department getDepartmentById(int department_id) {
+		// TODO Auto-generated method stub
+		System.out.println("services find Department by id  "+department_id);
+		
+		Department Departmentlist = DepServiceProxy.getDepartmentById(department_id);
+		
+		System.out.println("services find Departmentlist  "+Departmentlist);
+		return Departmentlist;
+		
+		
 	}
 
 }

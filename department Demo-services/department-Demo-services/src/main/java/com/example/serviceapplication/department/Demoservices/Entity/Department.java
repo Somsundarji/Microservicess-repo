@@ -18,7 +18,7 @@ public class Department {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int department_id;
+	private int departmentid;
 	
 	@Column 
 	private String department_name;
@@ -35,9 +35,9 @@ public class Department {
 
 	
 	
-	public Department(int department_id, String department_name, String department_detals, int deletes) {
+	public Department(int departmentid, String department_name, String department_detals, int deletes) {
 		super();
-		this.department_id = department_id;
+		this.departmentid = departmentid;
 		this.department_name = department_name;
 		this.department_detals = department_detals;
 		this.deletes = deletes;
@@ -45,12 +45,12 @@ public class Department {
 
 
 
-	public int getDepartment_id() {
-		return department_id;
+	public int getDepartmentid() {
+		return departmentid;
 	}
 
-	public void setDepartment_id(int department_id) {
-		this.department_id = department_id;
+	public void setDepartmentid(int department_id) {
+		this.departmentid = department_id;
 	}
 
 	public String getDepartment_name() {
@@ -81,7 +81,7 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return "Department [department_id=" + department_id + ", department_name=" + department_name
+		return "Department [department_id=" + departmentid + ", department_name=" + department_name
 				+ ", department_detals=" + department_detals + ", deletes=" + deletes + "]";
 	}
 	

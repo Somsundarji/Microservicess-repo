@@ -1,0 +1,51 @@
+--- 
+eureka: 
+  client: 
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl: 
+      defaultZone: "http://localhost:8761/eureka/"
+  instance: 
+    hostname: localhost
+hystrix: 
+  command: 
+    fallbackcmd: 
+      execution: 
+        isolation: 
+          thread: 
+            timeoutInMilliseconds: 5000
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include: hystrix.stream
+server: 
+  port: 8989
+spring: 
+  application: 
+    name: GETEWAY-SERVER
+  cloud: 
+    gateway: 
+      routes:
+        - id: DEPARTMENT-SERVER
+          uri: lb://DEPARTMENT-SERVER
+          predicates:
+            - Path=/department/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: DEPARTMENT-SERVER
+                fallbackuri: forward:/departmentFallBack   
+        - id: EMPOLOYEE-SERVER
+          uri: lb://EMPOLOYEE-SERVER
+          predicates:
+            - Path=/Employeeservices/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: EMPOLOYEE-SERVER
+                fallbackuri: forward:/EmployeeservicesFallback          
+                          
+ 
+   
+  

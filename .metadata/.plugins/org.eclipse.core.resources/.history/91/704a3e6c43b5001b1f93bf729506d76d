@@ -1,5 +1,0 @@
-package com.example.serviceapplication.employee.Demoservices.Services;
-
-public interface Employeeservicess {
-
-}

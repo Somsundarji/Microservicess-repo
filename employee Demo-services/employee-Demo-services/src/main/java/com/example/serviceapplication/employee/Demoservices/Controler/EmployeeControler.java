@@ -18,16 +18,12 @@ import com.example.serviceapplication.employee.Demoservices.Entety.Employee;
 import com.example.serviceapplication.employee.Demoservices.Services.Employeeservicess;
 
 
-
-
 @RestController
 @RequestMapping("/Employeeservices")
 public class EmployeeControler {
 	
     @Autowired
-	private Employeeservicess employeeservicess;
-    
-   
+	private Employeeservicess employeeservicess; 
 
 	@GetMapping(value = "/employees")
 	public List<Employee> getAllEmployees() {
@@ -57,9 +53,12 @@ public class EmployeeControler {
 
 	@PostMapping("/add_employees")
 	public Employee createOrSaveEmployee(@RequestBody Employee newEmployee) {
+		
 		return employeeservicess.createOrSaveEmployee(newEmployee);
 	}
 
+	
+	
 	@GetMapping("/Employeedetails/{employee_id}")
 	public ResponsTemplate getEmployeedetailsById(@PathVariable int employee_id) {
 		

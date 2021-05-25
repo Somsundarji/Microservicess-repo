@@ -1,9 +1,0 @@
-package com.example.serviceapplication.employee.Demoservices.DTO;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.example.serviceapplication.employee.Demoservices.Entety.Employeeservices;
-
-public interface Employeeservicesrepository extends JpaRepository<Employeeservices, Integer> {
-
-}

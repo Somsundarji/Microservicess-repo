@@ -1,5 +1,0 @@
-package com.example.serviceapplication.department.Demoservices.Servicess;
-
-public interface DepartmentServicess {
-
-}
